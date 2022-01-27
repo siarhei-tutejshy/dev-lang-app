@@ -15,7 +15,7 @@ const Learn = (props) => {
         wordIndex === itemsCount - 1
             ? setwordIndex(0)
             : setwordIndex(wordIndex + 1);
-
+    if (!props.lernWords || props.lernWords < 1) return <span className={s.noWords}>No words</span>;
     return (
         <div className={s.learn}>
             <ProgressBar width={width} />
@@ -24,9 +24,7 @@ const Learn = (props) => {
                 wordIndex={wordIndex}
                 speakWord={props.speakWord}
             />
-            <button className={s.btnNext} onClick={changeWordIndex}
-                
-            ></button>
+            <button className={s.btnNext} onClick={changeWordIndex}></button>
         </div>
     );
 };

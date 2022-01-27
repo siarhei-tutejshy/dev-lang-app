@@ -24,8 +24,7 @@ let libraryReducer = (state = initialState, action) => {
                         learnProgress: 0,
                     },
                 ],
-                newWordText: ''
-
+                newWordText: '',
             };
 
         case ADD_NEW_WORD_TEXT:
@@ -56,6 +55,7 @@ export const addNewWordThunk = (newWord) => {
         });
     };
 };
+
 export const deleteWord = (wordId) => ({ type: DELETE_WORD, id: wordId });
 export const addWord = (data) => ({ type: ADD_WORD, data: data });
 

@@ -1,9 +1,12 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import libraryReducer from './reducers/libraryReducer';
 import thunkMiddleware from 'redux-thunk';
+import playWordsReducer from './reducers/playWordsReducer';
 let reducers = combineReducers({
     library: libraryReducer,
+    // playWords: playWordsReducer
 });
+
 const persistedState = localStorage.getItem('reduxState')
     ? JSON.parse(localStorage.getItem('reduxState'))
     : {};

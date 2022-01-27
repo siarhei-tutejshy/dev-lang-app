@@ -19,3 +19,12 @@
 .learn{
     text-align: center;
 }
+
+.noWords{
+    display: block;
+    text-align: center;
+    width: 190px;
+    margin: 100px auto;
+    font-weight: 600;
+    font-size: 34px;
+}
