@@ -1,9 +1,12 @@
 import { translateAPI } from './../../DAL/api';
+import nextId from 'react-id-generator';
+
 const ADD_WORD = 'ADD_WORD';
 const ADD_NEW_WORD_TEXT = 'ADD_NEW_WORD_TEXT';
+const DELETE_WORD = 'DELETE_WORD';
 
 let initialState = {
-    library: [{ word: 'кот', translate: 'cat', learnProgress: 0 }],
+    library: [],
     newWordText: '',
 };
 
@@ -15,11 +18,14 @@ let libraryReducer = (state = initialState, action) => {
                 library: [
                     ...state.library,
                     {
+                        id: nextId(),
                         word: action.data.word,
                         translate: action.data.translate,
                         learnProgress: 0,
                     },
                 ],
+                newWordText: ''
+
             };
 
         case ADD_NEW_WORD_TEXT:
@@ -27,6 +33,11 @@ let libraryReducer = (state = initialState, action) => {
                 ...state,
 
                 newWordText: action.newWordText,
+            };
+        case DELETE_WORD:
+            return {
+                ...state,
+                library: state.library.filter((word) => word.id !== action.id),
             };
         default:
             return state;
@@ -41,12 +52,11 @@ export const addNewWordText = (newWord) => ({
 export const addNewWordThunk = (newWord) => {
     return (dispatch) => {
         translateAPI.translateWord(newWord).then((data) => {
-            console.log(data,'data')
             dispatch(addWord(data));
         });
     };
 };
-
+export const deleteWord = (wordId) => ({ type: DELETE_WORD, id: wordId });
 export const addWord = (data) => ({ type: ADD_WORD, data: data });
 
 export default libraryReducer;

@@ -18,7 +18,7 @@ const WordsTable = (props) => {
                     <h3>Learn</h3>
                 </li>
             </ul>
-             {props.library.map(item => (<WordItem {...item}/>))}
+             {props.library.map(item => (<WordItem key ={item.id} {...item} onRemoveWord={props.onRemoveWord}/>))}
         </div>
     );
 };

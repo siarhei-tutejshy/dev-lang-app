@@ -4,11 +4,12 @@ import addBtn from '../../assets/img/add.svg'
 import WordsTable from './WordsTable/WordsTable';
 
 const Library = (props) => {
-    console.log(props,'wordstable')
+    
    
 let onTextChange = (e)=> {
     console.log(e.target)
     props.addNewWordText(e.target.value)
+    
 }
 
 let addWord =(e) => {
@@ -27,7 +28,7 @@ let addWord =(e) => {
                     <img  src={addBtn} alt="#" />
                 </button>
             </form>
-            <WordsTable library={props.library}/>
+            <WordsTable library={props.library} onRemoveWord={props.onRemoveWord}/>
         </section>
     );
 };
