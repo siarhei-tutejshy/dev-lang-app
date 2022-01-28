@@ -3,11 +3,11 @@ import  React  from 'react';
 import GameBlock from './GamesBlock/GameBlock';
 import PointsBlock from './PointsBlock/PointsBlock';
 import LevelBlock from './LevelBlock/LevelBlock';
-const Dashboard =() => {
+const Dashboard =(props) => {
 
     return <div className={s.dashboardContainer}>
         <GameBlock />
-        <PointsBlock />
+        <PointsBlock totalPoints={props.totalPoints}/>
         <LevelBlock />
     </div>
 

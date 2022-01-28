@@ -18,7 +18,7 @@ let libraryReducer = (state = initialState, action) => {
                 library: [
                     ...state.library,
                     {
-                        id: nextId(),
+                        id: Date.now(),
                         word: action.data.word,
                         translate: action.data.translate,
                         learnProgress: 0,

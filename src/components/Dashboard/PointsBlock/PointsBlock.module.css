@@ -13,6 +13,9 @@
     margin: 0;
     padding-top: 12px;
 }
+.pointsBlock span{
+    text-align: right;
+}
 
 @media (max-width: 992px) {
      .pointsBlock {

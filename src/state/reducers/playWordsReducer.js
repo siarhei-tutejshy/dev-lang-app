@@ -1,52 +1,34 @@
-import { translateAPI } from '../../DAL/api';
-import nextId from 'react-id-generator';
-
-const ADD_WORD = 'ADD_WORD';
-const ADD_NEW_WORD_TEXT = 'ADD_NEW_WORD_TEXT';
-const DELETE_WORD = 'DELETE_WORD';
+const ADD_PLAYWORDS = 'ADD_PLAYWORDS';
+const ADD_WORD_CHECK = 'ADD_WORD_CHECK';
+// const DELETE_WORD = 'DELETE_WORD';
 
 let initialState = {
     playWords: [],
-    newWordText: '',
+    checkingWord: '',
 };
 
 let playWordsReducer = (state = initialState, action) => {
-// //     switch (action.type) {
-// //         case ADD_WORD:
-// //             return {
-// //                 ...state,
-// //                 library: [
-// //                     ...state.library,
-// //                     {
-// //                         id: nextId(),
-// //                         word: action.data.word,
-// //                         translate: action.data.translate,
-// //                         learnProgress: 0,
-// //                     },
-// //                 ],
-// //                 newWordText: '',
-// //             };
+    switch (action.type) {
+        case ADD_PLAYWORDS:
+            return {
+                ...state,
+                playWords: [...action.playWords],
+            };
+        case ADD_WORD_CHECK:
+            console.log(action.word)
+            return {
+                ...state,
+                checkingWord: action.word,
+            };
+        default:
+            return state;
+    }
+};
 
-// //         case ADD_NEW_WORD_TEXT:
-// //             return {
-// //                 ...state,
-
-// //                 newWordText: action.newWordText,
-// //             };
-// //         case DELETE_WORD:
-// //             return {
-// //                 ...state,
-// //                 library: state.library.filter((word) => word.id !== action.id),
-// //             };
-// //         default:
-// //             return state;
-// //     }
-// // };
-
-// export const addNewWordText = (newWord) => ({
-//     type: ADD_NEW_WORD_TEXT,
-//     newWordText: newWord,
-// });
+export const addWordCheck = (word) => ({
+    type: ADD_WORD_CHECK,
+    word: word,
+});
 
 // export const addNewWordThunk = (newWord) => {
 //     return (dispatch) => {
@@ -57,6 +39,9 @@ let playWordsReducer = (state = initialState, action) => {
 // };
 
 // export const deleteWord = (wordId) => ({ type: DELETE_WORD, id: wordId });
-    // export const addWord = (data) => ({ type: ADD_WORD, data: data })
-}
+export const addPlayWords = (playWords) => ({
+    type: ADD_PLAYWORDS,
+    playWords: playWords,
+});
+
 export default playWordsReducer;
