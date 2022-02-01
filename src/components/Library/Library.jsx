@@ -2,12 +2,13 @@ import React from 'react';
 import s from './Library.module.css';
 import addBtn from '../../assets/img/add.svg'
 import WordsTable from './WordsTable/WordsTable';
+import { useDispatch } from 'react-redux';
 
 const Library = (props) => {
-    
+  
    
 let onTextChange = (e)=> {
-    console.log(e.target)
+    
     props.addNewWordText(e.target.value)
     
 }

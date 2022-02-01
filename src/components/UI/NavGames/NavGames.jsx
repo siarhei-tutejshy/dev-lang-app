@@ -7,8 +7,8 @@ const NavGames = (props) => {
         <nav className={s.gameNav}>
             <NavLink className={s.btnBack} to={'/games'}></NavLink>
             <ul className={s.results}>
-                <li>Errors: {props.error}</li>
-                <li>Correct: {props.right}</li>
+                <li>Errors: {props.stats.error}</li>
+                <li>Correct: {props.stats.right}</li>
                 <li>Points: {props.totalPoints}</li>
             </ul>
             

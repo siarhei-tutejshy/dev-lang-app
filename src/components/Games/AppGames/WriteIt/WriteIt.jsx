@@ -6,18 +6,16 @@ import ProgressBar from '../../../UI/ProgressBar/ProgressBar';
 import s from '../AppGames.module.css';
 const WriteIt = (props) => {
     let [word, setWord] = useState('')
-    
-    
+
     const onCheckWord = (e) => {
         e.preventDefault();
         props.changeWordIndex();
         props.addWordCheck(word.toLowerCase())
         setWord('')
     };
+   
     return (
         <div>
-            <ProgressBar width={props.width} />
-            <NavGames {...props.stats} totalPoints={props.totalPoints} />
             <section className={s.gameContainer}>
                 <span>Write a translation for this word</span>
                 <h3>{props.playWord}</h3>

@@ -5,8 +5,10 @@ import DashboardContainer from './components/Dashboard/DashboardContainer';
 import LibraryContainer from './components/Library/LibraryContainer';
 import LearnContainer from './components/Learn/LearnContainer';
 import GamesContainer from './components/Games/GamesContainer';
-import WriteIt from './components/Games/AppGames/WriteIt/WriteIt';
+import CheckItContainer from './components/Games/AppGames/CheckIt/ChectItContainer';
 import WriteContainer from './components/Games/AppGames/WriteIt/WriteItContainer';
+import Dictaphone from './components/Games/AppGames/SpeakIt/SpeakIt';
+import GameContainer from './components/Games/GameContainer';
 
 const App = () => {
     return (
@@ -18,7 +20,11 @@ const App = () => {
                     <Route path="/dashboard" element={<DashboardContainer />} />
                     <Route path="/" element={<DashboardContainer />} />
                     <Route path="/games" element={<GamesContainer />} />
-                    <Route path="/game/write-it" element={<WriteContainer />} />
+                    <Route path="/game/:gameName" element={<GameContainer />} />
+                    
+                    {/* <Route path="/game/write-it" element={<WriteContainer />} />
+                    <Route path="/game/check-it" element={<CheckItContainer />} />
+                    <Route path="/game/speak-it" element={<Dictaphone />} /> */}
                     <Route path="/library" element={<LibraryContainer />} />
                     <Route path="/learn" element={<LearnContainer />} />
                 </Routes>

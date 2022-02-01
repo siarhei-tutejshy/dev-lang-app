@@ -34,7 +34,7 @@
     box-sizing: border-box;
 }
 
-.btnCheck {
+.btnCheck,.btnRecord {
     box-shadow: 2px 2px 5px rgba(10, 46, 82, 0.16), -8px -8px 40px rgba(255, 255, 255, 0.56), 8px 8px 15px rgba(0, 0, 0, 0.17);
     border-radius: 30px;
     padding: 30px;
@@ -46,8 +46,17 @@
     transition: .6s;
 }
 
-.btnCheck:hover {
+.btnCheck:hover, .btnRecord:hover {
     opacity: .6;
+}
+.btnRecord {
+    background-color: inherit;
+    background-image: url(../../../assets/img/recorder.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: none;
+    text-align:  center;
 }
 
 .btnContainer {
@@ -71,6 +80,11 @@ h3 {
     font-size: 36px;
     text-align: center;
 }
+p {
+    
+    text-align: center;
+}
+
 .gameContainer {
     max-width: 1020px;
     margin: 0 auto;
