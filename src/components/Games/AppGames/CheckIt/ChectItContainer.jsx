@@ -18,11 +18,23 @@ const ChectItContainer = (props) => {
     }, [props.playWord]);
 
     useEffect(() => {
-        (props.checkingWord !== props.playWord.translate || !props.checkingWord )
+        if (props.checkingWord)
+        (props.checkingWord !== props.playWord.translate )
             ? props.isWordCorrect(false)
             : props.isWordCorrect(true);
+            props.addWordCheck('')
     },[props.wordIndex]);
-
+    // useEffect(() => {
+    //     if (props.checkingWord) {
+    //         props.checkingWord !== props.playWord.translate
+    //             ? props.isWordCorrect(false)
+    //             : props.isWordCorrect(true);
+    //     }
+    // }, [props.checkingWord]);
+    // useEffect(() => {
+        
+        
+    // }, [props.wordIndex]);
     return (
         <ChectIt
             playWord={props.playWord.word}
@@ -32,7 +44,5 @@ const ChectItContainer = (props) => {
         />
     );
 };
-
-
 
 export default ChectItContainer

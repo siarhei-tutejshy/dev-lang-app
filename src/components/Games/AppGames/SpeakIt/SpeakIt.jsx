@@ -1,14 +1,14 @@
+import React, { useEffect, useState } from 'react';
 import SpeechRecognition, {
     useSpeechRecognition,
 } from 'react-speech-recognition';
 
 import s from '../AppGames.module.css';
 const SpeakIt = (props) => {
-    const { transcript, listening, browserSupportsSpeechRecognition } =
-        useSpeechRecognition();
+    const { transcript, listening, resetTranscript, browserSupportsSpeechRecognition } =useSpeechRecognition();
+        
 
     const startListening = () =>
-   
         SpeechRecognition.startListening({
             continuous: true,
             language: 'en-GB',
@@ -20,21 +20,30 @@ const SpeakIt = (props) => {
     const onCheckWord = (e) => {
       SpeechRecognition.stopListening()
       props.addWordCheck(transcript)
+     
+      
       
   };
+  const changeWord =() => {
+    props.changeWordIndex()
+    resetTranscript()
+    
+  }
     return (
         <section className={s.gameContainer}>
             <span>Say this word</span>
             <h3>{props.playWord}</h3>
-            <p>{!transcript ? "" : props.checkingWord}</p>
+            <p>{props.checkingWord}</p>
             <button
                 className={s.btnRecord}
                 onTouchStart={startListening}
                 onMouseDown={startListening}
                 onTouchEnd={onCheckWord}
-                onMouseUp={onCheckWord}
+                onMouseUp={ onCheckWord}
             ></button>
-            <p>Microphone: {listening ? 'on' : 'off'}</p>
+            
+            <p>Microphone: {listening ? <span className={s.record}></span> : 'off'}</p>
+            <button onClick={changeWord}>Next</button>
            
         </section>
     );

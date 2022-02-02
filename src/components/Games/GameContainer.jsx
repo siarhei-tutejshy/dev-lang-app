@@ -4,6 +4,8 @@ import NavGames from '../UI/NavGames/NavGames';
 import ProgressBar from '../UI/ProgressBar/ProgressBar';
 import ChectItContainer from './AppGames/CheckIt/ChectItContainer';
 import WriteItContainer from './AppGames/WriteIt/WriteItContainer';
+
+
 import {
     addPlayWords,
     addWordCheck,
@@ -21,6 +23,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import SpeakItContainer from './AppGames/SpeakIt/SpeakItContainer';
+import PutItContainer from './AppGames/PutIt/PutItContainer';
 
 const GameContainer = () => {
     let params = useParams();
@@ -36,8 +39,8 @@ const GameContainer = () => {
 
     let [width, setWidth] = useState(0);
     let [wordIndex, setwordIndex] = useState(0);
-    let [playWord, setPlayWord] = useState({ word: 'no words' });
-    let [stats, setStats] = useState({ error: -1, right: 0 });
+    let [playWord, setPlayWord] = useState({ word: 'no words',translate: '' });
+    let [stats, setStats] = useState({ error: 0, right: 0 });
 
     const changeWordIndex = () => {
         if (wordIndex === itemsCount - 1) {
@@ -46,6 +49,7 @@ const GameContainer = () => {
             setwordIndex(wordIndex + 1);
         }
         setWidth((100 / itemsCount) * (wordIndex + 1));
+        
     };
 
     const addWordForCheck = (word) => {
@@ -62,6 +66,7 @@ const GameContainer = () => {
         dispatch(
             addPlayWords(libraryList.sort(() => Math.random() - 0.5).slice(-10))
         );
+        return () => addWordForCheck('')
     }, []);
 
     useEffect(() => {
@@ -75,6 +80,7 @@ const GameContainer = () => {
                 translate: playWords[wordIndex].translate.toLowerCase(),
             });
         }
+        
     }, [wordIndex]);
 
     useEffect(() => {
@@ -83,6 +89,7 @@ const GameContainer = () => {
             dispatch(addTotalPoints(totalPoints));
         }
     }, [stats.right]);
+    
     //    if( wordIndex === itemsCount - 1) return <EndGameWidget stats={stats} totalPoints={totalPoints} />
     return (
         <div>
@@ -120,7 +127,19 @@ const GameContainer = () => {
                         addWordCheck={addWordForCheck}
                         isWordCorrect={isWordCorrect}
                         checkingWord={checkingWord}
-                    />))}
+                    />)) ||
+                    (params.gameName === 'put-it' && (
+                        <PutItContainer
+                            wordIndex={wordIndex}
+                            playWord={playWord}
+                            playWords={playWords}
+                            itemsCount={itemsCount}
+                            changeWordIndex={changeWordIndex}
+                            addWordCheck={addWordForCheck}
+                            isWordCorrect={isWordCorrect}
+                            checkingWord={checkingWord}
+                        />
+                    ))}
         </div>
     );
 };

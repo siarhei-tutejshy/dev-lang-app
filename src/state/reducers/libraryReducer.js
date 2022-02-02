@@ -50,9 +50,19 @@ export const addNewWordText = (newWord) => ({
 
 export const addNewWordThunk = (newWord) => {
     return (dispatch) => {
-        translateAPI.translateWord(newWord).then((data) => {
-            dispatch(addWord(data));
-        });
+        translateAPI
+            .translateWord(newWord)
+            .then((data) => {
+                data = {
+                    word: data.word.trim().toLowerCase(),
+                    translate:
+                        data.translate.toLowerCase().split(' ')[1] ||
+                        data.translate.toLowerCase(),
+                };
+
+                dispatch(addWord(data));
+            })
+            .catch((e) => console.log(e));
     };
 };
 
