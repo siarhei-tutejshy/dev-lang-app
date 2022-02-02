@@ -24,6 +24,8 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import SpeakItContainer from './AppGames/SpeakIt/SpeakItContainer';
 import PutItContainer from './AppGames/PutIt/PutItContainer';
+import ListenItContainer from './AppGames/ListenIt/ListenItContainer';
+import GuessSprintContainer from './AppGames/GuessSprint/GuessSprintContainer';
 
 const GameContainer = () => {
     let params = useParams();
@@ -139,7 +141,30 @@ const GameContainer = () => {
                             isWordCorrect={isWordCorrect}
                             checkingWord={checkingWord}
                         />
-                    ))}
+                    ))||
+                    (params.gameName === 'listen-it' && (
+                        <ListenItContainer
+                            wordIndex={wordIndex}
+                            playWord={playWord}
+                            playWords={playWords}
+                            itemsCount={itemsCount}
+                            changeWordIndex={changeWordIndex}
+                            addWordCheck={addWordForCheck}
+                            isWordCorrect={isWordCorrect}
+                            checkingWord={checkingWord}
+                        />
+                    )) ||
+                    (params.gameName === 'guess-sprint' && (
+                        <GuessSprintContainer
+                            wordIndex={wordIndex}
+                            playWord={playWord}
+                            playWords={playWords}
+                            itemsCount={itemsCount}
+                            changeWordIndex={changeWordIndex}
+                            addWordCheck={addWordForCheck}
+                            isWordCorrect={isWordCorrect}
+                            checkingWord={checkingWord}
+                        />  ))}
         </div>
     );
 };
