@@ -1,8 +1,7 @@
-import s from './PointsBlock.module.css';
 import React from 'react';
+import s from './PointsBlock.module.css';
 
-
-const PointsBlock = ({totalPoints}) => {
+const PointsBlock = ({ totalPoints }) => {
     return (
         <div className={s.pointsBlock}>
             <span>Common expiriense</span>

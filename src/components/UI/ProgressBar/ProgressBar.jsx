@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './ProgressBar.module.css';
+
 const ProgressBar = ({ width }) => {
     return (
         <div className={s.progressBarContainer}>

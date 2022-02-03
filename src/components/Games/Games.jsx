@@ -1,7 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Games.module.css';
+
 const Games = (props) => {
+    
     return (
         <section className={s.gameContainer}>
             {props.renderData.map((game) => (

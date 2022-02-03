@@ -1,5 +1,4 @@
 import { translateAPI } from './../../DAL/api';
-import nextId from 'react-id-generator';
 
 const ADD_WORD = 'ADD_WORD';
 const ADD_NEW_WORD_TEXT = 'ADD_NEW_WORD_TEXT';
@@ -59,7 +58,6 @@ export const addNewWordThunk = (newWord) => {
                         data.translate.toLowerCase().split(' ')[1] ||
                         data.translate.toLowerCase(),
                 };
-
                 dispatch(addWord(data));
             })
             .catch((e) => console.log(e));
@@ -67,6 +65,7 @@ export const addNewWordThunk = (newWord) => {
 };
 
 export const deleteWord = (wordId) => ({ type: DELETE_WORD, id: wordId });
+
 export const addWord = (data) => ({ type: ADD_WORD, data: data });
 
 export default libraryReducer;

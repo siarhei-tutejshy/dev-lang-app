@@ -9,6 +9,7 @@
     border: none;
     background-position: center;
 }
+
 .results {
     list-style-type: none;
     padding: 0;
@@ -19,6 +20,7 @@
     font-size: 16px;
     color: #0A2E52;
 }
+
 .gameNav {
     display: grid;
     grid-auto-flow: column;

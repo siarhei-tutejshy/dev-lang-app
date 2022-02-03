@@ -2,42 +2,31 @@ import React, { useEffect, useState } from 'react';
 import ChectIt from './ChectIt';
 
 const ChectItContainer = (props) => {
-    let [currentWords, setCurrentWords] = useState([
-        'rqndom',
-        ' current',
-        'random2',
-    ]);
-    
+    let [currentWords, setCurrentWords] = useState(['rqndom',' current','random2',]);
+
     useEffect(() => {
-        if (props.itemsCount > 1){
-          setCurrentWords([
-                props.playWord.translate ,
-                props.playWords[(props.wordIndex + 1)% props.itemsCount].translate ,
-                props.playWords[(props.wordIndex + 2)% props.itemsCount].translate ,
-            ].sort(() => Math.random() - 0.5));}
+        if (props.itemsCount > 1) {
+            setCurrentWords(
+                [
+                    props.playWord.word,
+                    props.playWords[(props.wordIndex + 1) % props.itemsCount].word,   
+                    props.playWords[(props.wordIndex + 2) % props.itemsCount].word,      
+                ].sort(() => Math.random() - 0.5)
+            );
+        }
     }, [props.playWord]);
 
     useEffect(() => {
         if (props.checkingWord)
-        (props.checkingWord !== props.playWord.translate )
-            ? props.isWordCorrect(false)
-            : props.isWordCorrect(true);
-            props.addWordCheck('')
-    },[props.wordIndex]);
-    // useEffect(() => {
-    //     if (props.checkingWord) {
-    //         props.checkingWord !== props.playWord.translate
-    //             ? props.isWordCorrect(false)
-    //             : props.isWordCorrect(true);
-    //     }
-    // }, [props.checkingWord]);
-    // useEffect(() => {
-        
-        
-    // }, [props.wordIndex]);
+            props.checkingWord !== props.playWord.word
+                ? props.isWordCorrect(false)
+                : props.isWordCorrect(true);
+        props.addWordCheck('');
+    }, [props.wordIndex]);
+
     return (
         <ChectIt
-            playWord={props.playWord.word}
+            playWord={props.playWord.translate}
             changeWordIndex={props.changeWordIndex}
             addWordCheck={props.addWordCheck}
             currentWords={currentWords}
@@ -45,4 +34,4 @@ const ChectItContainer = (props) => {
     );
 };
 
-export default ChectItContainer
+export default ChectItContainer;

@@ -1,8 +1,8 @@
-import SpeakIt from './SpeakIt';
 import React, { useEffect } from 'react';
+import SpeakIt from './SpeakIt';
 
 const SpeakItContainer = (props) => {
-    
+
     useEffect(() => {
         if (props.checkingWord) {
             props.checkingWord !== props.playWord.translate
@@ -10,11 +10,10 @@ const SpeakItContainer = (props) => {
                 : props.isWordCorrect(true);
         }
     }, [props.checkingWord]);
+
     useEffect(() => {
         props.addWordCheck('')
-        
     }, [props.wordIndex]);
-
 
     return (
         <SpeakIt

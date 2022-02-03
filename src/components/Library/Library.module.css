@@ -2,6 +2,7 @@
     text-align: center;
     font-size: calc(12px + (24 - 16) * (100vw - 400px) / (800 - 400));
 }
+
 .libraryBlock {
     display: grid;
     max-width: 700px;
@@ -30,9 +31,11 @@ section {
 .addWordBlock button:focus {
     outline: none;
 }
+
 .addWordBlock button:hover {
     opacity: .6;
 }
+
 .addWordBlock input {
     box-shadow: inset -4px -4px 4px rgba(255, 255, 255, 0.18), inset 2px 2px 4px rgba(0, 0, 0, 0.24), inset -8px -8px 15px rgba(255, 255, 255, 0.02), inset 8px 8px 15px rgba(10, 46, 82, 0.21);
     border-radius: 15px;
@@ -53,9 +56,6 @@ section {
 .addWordBlock img:hover {
     opacity: .6;
     cursor: pointer;
-}
-.addWordBlock img.close {
-
 }
 
 .wordsTable > ul:not(:first-child) > li{
@@ -100,7 +100,6 @@ section {
     padding: 6px 12px;
     transition: .6s;
 }
-
 
 .wordsTable > ul:not(:first-child):hover .settings{
     opacity: 1;

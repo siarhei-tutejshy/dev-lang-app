@@ -1,4 +1,5 @@
 export const library = state => state.library.library 
+
 export const newWordText = state=> state.library.newWordText
 
 export const playWords = state => state.playWords.playWords;

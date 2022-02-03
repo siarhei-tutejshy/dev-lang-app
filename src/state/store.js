@@ -3,6 +3,7 @@ import libraryReducer from './reducers/libraryReducer';
 import thunkMiddleware from 'redux-thunk';
 import playWordsReducer from './reducers/playWordsReducer';
 import progressReducer from './reducers/progressReducer';
+
 let reducers = combineReducers({
     library: libraryReducer,
     playWords: playWordsReducer,
@@ -12,6 +13,7 @@ let reducers = combineReducers({
 const persistedState = localStorage.getItem('reduxState')
     ? JSON.parse(localStorage.getItem('reduxState'))
     : {};
+
 let store = createStore(
     reducers,
     persistedState,
@@ -20,5 +22,6 @@ let store = createStore(
 store.subscribe(() => {
     localStorage.setItem('reduxState', JSON.stringify(store.getState()));
 });
+
 window.store = store;
 export default store;

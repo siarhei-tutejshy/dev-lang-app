@@ -6,14 +6,7 @@ const PutItContainer = (props) => {
     let [resultWord, setResultWord] = useState([]);
     let [correct, setCorrect] = useState(false);
 
-    useEffect(() => {
-        setCurrentWord(
-            props.playWord.translate.split('').sort(() => Math.random() - 0.5)
-        );
-        setResultWord([]);
-        setCorrect(false);
-    }, [props.playWord]);
-
+    
     const selectLetter = (i) => {
         let newCurrentWord = [...currentWord];
         newCurrentWord.splice(newCurrentWord.indexOf(i), 1);
@@ -29,14 +22,19 @@ const PutItContainer = (props) => {
     };
 
     useEffect(() => {
-        if (resultWord.join('') === props.playWord.translate) {
+        setCurrentWord(props.playWord.translate.split('').sort(() => Math.random() - 0.5));
+        setResultWord([]);
+        setCorrect(false);
+    }, [props.playWord]);
+
+    useEffect(() => {
+        if (resultWord.join('') === props.playWord.translate && props.playWord.translate) {
             setCorrect(true);
         }
     }, [resultWord]);
-    console.log(currentWord, resultWord);
 
     useEffect(() => {
-        correct && props.isWordCorrect(true);
+        if(correct) props.isWordCorrect(true);
     }, [correct]);
 
     return (

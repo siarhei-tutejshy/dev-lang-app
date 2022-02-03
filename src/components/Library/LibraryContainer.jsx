@@ -1,7 +1,5 @@
+import React from 'react';
 import Library from './Library';
-import { connect } from 'react-redux';
-import React, { useEffect } from 'react';
-
 import { deleteWord, addNewWordText, addNewWordThunk} from '../../state/reducers/libraryReducer';
 import { useSelector } from 'react-redux';
 import  * as librarySelector from '../../state/selectors/slelectors';
@@ -14,9 +12,7 @@ const LibraryContainer = (props) => {
     let dispatch = useDispatch()
   
     const onAddWord = () => {
-        console.log('in add word');
         dispatch(addNewWordThunk(newWordText));
-        
     };
 
     const onRemoveWord = (wordId) => {
@@ -37,12 +33,5 @@ const LibraryContainer = (props) => {
         />
     );
 };
-
-// let mapStateToProps = (state) => {
-//     return {
-//         library: state.library.library,
-//         newWordText: state.library.newWordText,
-//     };
-// };
 
 export default LibraryContainer;

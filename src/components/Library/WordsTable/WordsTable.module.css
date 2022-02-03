@@ -43,7 +43,6 @@
     transition: .6s;
 }
 
-
 .wordsTable > ul:not(:first-child):hover .settings{
     opacity: 1;
 }

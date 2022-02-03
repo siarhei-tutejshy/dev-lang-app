@@ -1,0 +1,65 @@
+.modal {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(117, 116, 116, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+}
+.modal.active {
+    transform: scale(1);
+}
+.btn {
+    box-shadow: 2px 2px 5px rgba(10, 46, 82, 0.16),
+        -8px -8px 40px rgba(255, 255, 255, 0.56),
+        8px 8px 15px rgba(0, 0, 0, 0.17);
+    border-radius: 50px;
+    padding: 20px 40px;
+    background-repeat: no-repeat;
+    background-size: 45px;
+    border: none;
+    background-position: center;
+    margin-right: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.results {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #0a2e52;
+}
+.endGame {
+    display: flex;
+    flex-direction: column;
+    border-radius: 50px;
+    padding: 30px;
+    width: 50vw;
+    max-width: 1020px;
+    margin: 0 auto;
+    align-items: center;
+    background-color: #e9ebf1;
+    transform: translateY(-100vh);
+}
+
+p {
+    font-size: 24px;
+}
+.endGame.active {
+    transform: translateY(0);
+    transition: transform 0.7s;
+}
+
+.buttonsBlock {
+    display: flex;
+    margin: 30px auto;
+}

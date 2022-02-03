@@ -1,17 +1,23 @@
 .btnCheck:active {
-    box-shadow: inset -4px -4px 4px rgba(255, 255, 255, 0.18), inset 2px 2px 4px rgba(0, 0, 0, 0.24), inset -8px -8px 15px rgba(255, 255, 255, 0.02), inset 8px 8px 15px rgba(10, 46, 82, 0.21);
+    box-shadow: inset -4px -4px 4px rgba(255, 255, 255, 0.18),
+        inset 2px 2px 4px rgba(0, 0, 0, 0.24),
+        inset -8px -8px 15px rgba(255, 255, 255, 0.02),
+        inset 8px 8px 15px rgba(10, 46, 82, 0.21);
 }
 
 .btnOk {
-    background: #EAECF2;
-    box-shadow: 2px 2px 4px rgba(10, 46, 82, 0.12), -6px -6px 40px rgba(255, 255, 255, 0.63), 4px 4px 15px rgba(10, 46, 82, 0.11), inset 4px 4px 30px rgba(10, 46, 82, 0.11), inset -4px -4px 40px #FFFFFF;
+    background: #eaecf2;
+    box-shadow: 2px 2px 4px rgba(10, 46, 82, 0.12),
+        -6px -6px 40px rgba(255, 255, 255, 0.63),
+        4px 4px 15px rgba(10, 46, 82, 0.11),
+        inset 4px 4px 30px rgba(10, 46, 82, 0.11), inset -4px -4px 40px #ffffff;
     border-radius: 0 15px 15px 0;
     border: none;
     padding: 15px 30px;
     text-align: center;
     text-transform: uppercase;
     font-size: 18px;
-    color: #0A2E52;
+    color: #0a2e52;
 }
 
 .writeWordBlock {
@@ -26,7 +32,10 @@
 }
 
 .writeWordBlock input {
-    box-shadow: inset -4px -4px 4px rgba(255, 255, 255, 0.18), inset 2px 2px 4px rgba(0, 0, 0, 0.24), inset -8px -8px 15px rgba(255, 255, 255, 0.02), inset 8px 8px 15px rgba(10, 46, 82, 0.21);
+    box-shadow: inset -4px -4px 4px rgba(255, 255, 255, 0.18),
+        inset 2px 2px 4px rgba(0, 0, 0, 0.24),
+        inset -8px -8px 15px rgba(255, 255, 255, 0.02),
+        inset 8px 8px 15px rgba(10, 46, 82, 0.21);
     border-radius: 15px 0 0 15px;
     border: none;
     width: 100%;
@@ -34,20 +43,29 @@
     box-sizing: border-box;
 }
 
-.btnCheck,.btnRecord {
-    box-shadow: 2px 2px 5px rgba(10, 46, 82, 0.16), -8px -8px 40px rgba(255, 255, 255, 0.56), 8px 8px 15px rgba(0, 0, 0, 0.17);
+.btnCheck,
+.btnRecord {
+    box-shadow: 2px 2px 5px rgba(10, 46, 82, 0.16),
+        -8px -8px 40px rgba(255, 255, 255, 0.56),
+        8px 8px 15px rgba(0, 0, 0, 0.17);
     border-radius: 30px;
+    border-style: none;
+    background-color: inherit;
     padding: 30px;
     text-align: center;
     text-transform: uppercase;
     font-size: 18px;
-    color: #0A2E52;
+    color: #0a2e52;
     cursor: pointer;
-    transition: .6s;
+    transition: 0.6s;
 }
 
-.btnCheck:hover, .btnRecord:hover {
-    opacity: .6;
+.btnCheck:hover,
+.btnRecord:hover,
+.btnYes:hover,
+.btnNo:hover,
+.letterBtn:hover {
+    opacity: 0.6;
 }
 .btnRecord {
     background-color: inherit;
@@ -56,17 +74,38 @@
     background-position: center;
     background-size: contain;
     border: none;
-    
 }
 
 .btnContainer {
     display: grid;
     grid-auto-flow: column;
     max-width: 960px;
-    margin: 120px auto;
+    margin: 100px auto 50px auto;
     list-style-type: none;
     padding: 0 30px;
     column-gap: 30px;
+}
+.letterContainer {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 20px 0;
+}
+.letterBtn {
+    box-shadow: 2px 2px 5px rgba(10, 46, 82, 0.16),
+        -8px -8px 40px rgba(255, 255, 255, 0.56),
+        8px 8px 15px rgba(0, 0, 0, 0.17);
+    border-style: none;
+    background-color: inherit;
+    padding: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 600;
+    color: #0a2e52;
+    cursor: pointer;
+    transition: 0.6s;
+    margin-right: 20px;
 }
 
 span {
@@ -81,17 +120,17 @@ h3 {
     text-align: center;
 }
 p {
-    
     text-align: center;
 }
 
 .gameContainer {
     max-width: 1020px;
     margin: 0 auto;
-    border: 1px solid #DDDDDD;
+    border: 1px solid #dddddd;
     box-sizing: border-box;
     border-radius: 30px;
 }
+
 .record {
     display: inline-block;
     width: 10px;
@@ -101,14 +140,76 @@ p {
 }
 .clue {
     opacity: 0;
+    color: #979696;
 }
 .clueBlock {
     display: inline-block;
-    
+    cursor: pointer;
 }
-.clueBlock>span{
+.clueBlock > span {
     color: #979696;
 }
-.clueBlock:hover .clue{
+.clueBlock:hover .clue {
     opacity: 1;
+}
+
+span.listen {
+    width: 50px;
+    height: 50px;
+    background-color: inherit;
+    background-image: url(../../../assets/img/listen.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+}
+.contentBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.timer {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border-style: inherit;
+    border-radius: 40px;
+    box-shadow: inset -4px -4px 4px rgba(255, 255, 255, 0.18),
+        inset 2px 2px 4px rgba(0, 0, 0, 0.24),
+        inset -8px -8px 15px rgba(255, 255, 255, 0.02),
+        inset 8px 8px 15px rgba(10, 46, 82, 0.21);
+}
+.current,
+.timer {
+    font-size: 28px;
+    font-weight: 500;
+    color: #124f85;
+    text-transform: uppercase;
+}
+.btnYes,
+.btnNo {
+    box-shadow: 2px 2px 5px rgba(10, 46, 82, 0.16),
+        -8px -8px 40px rgba(255, 255, 255, 0.56),
+        8px 8px 15px rgba(0, 0, 0, 0.17);
+    border-radius: 30px;
+    border-style: none;
+    padding: 20px 60px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.6s;
+    margin-right: 30px;
+}
+.btnYes {
+    background-color: #06a606;
+}
+.btnNo {
+    background-color: #fe0443;
 }

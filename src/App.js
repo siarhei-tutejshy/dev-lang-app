@@ -5,7 +5,7 @@ import DashboardContainer from './components/Dashboard/DashboardContainer';
 import LibraryContainer from './components/Library/LibraryContainer';
 import LearnContainer from './components/Learn/LearnContainer';
 import GamesContainer from './components/Games/GamesContainer';
-import GameContainer from './components/Games/GameContainer';
+import AppGamesContainer from './components/Games/AppGames/AppGamesContainer';
 
 const App = () => {
     return (
@@ -17,7 +17,7 @@ const App = () => {
                     <Route path="/dashboard" element={<DashboardContainer />} />
                     <Route path="/" element={<DashboardContainer />} />
                     <Route path="/games" element={<GamesContainer />} />
-                    <Route path="/game/:gameName" element={<GameContainer />} />
+                    <Route path="/game/:gameName" element={<AppGamesContainer />} />
                     <Route path="/library" element={<LibraryContainer />} />
                     <Route path="/learn" element={<LearnContainer />} />
                 </Routes>

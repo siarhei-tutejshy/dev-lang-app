@@ -41,6 +41,7 @@ export const addPlayWords = (playWords) => ({
     type: ADD_PLAYWORDS,
     playWords: playWords,
 });
+
 export const checkCorrectWord = (check) => ({
     type: CHECK_CORRECT_WORD,
     check: check,

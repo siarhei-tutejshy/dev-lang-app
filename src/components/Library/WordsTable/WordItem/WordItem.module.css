@@ -1,5 +1,4 @@
 
-
 .settings button:hover {
     opacity: .6;
     background-color: #e7e7e7;
@@ -37,8 +36,6 @@
     padding: 6px 12px;
     transition: .6s;
 }
-
-
  ul:not(:first-child):hover .settings{
     opacity: 1;
 }

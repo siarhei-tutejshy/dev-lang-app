@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
 import s from './NavGames.module.css';
+
 const NavGames = (props) => {
     return (
         <nav className={s.gameNav}>
@@ -11,7 +11,6 @@ const NavGames = (props) => {
                 <li>Correct: {props.stats.right}</li>
                 <li>Points: {props.totalPoints}</li>
             </ul>
-            
         </nav>
     );
 };

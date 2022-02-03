@@ -6,6 +6,7 @@
     width: 0;
     transition: .6s;
 }
+
 .progressBarContainer {
     position: relative;
     height: 12px;

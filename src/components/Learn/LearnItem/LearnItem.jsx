@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import {useEffect } from 'react';
+import React from 'react';
+import { useEffect } from 'react';
 
-const LearnItem = ({learnWords, wordIndex, speakWord}) => {
+const LearnItem = ({ learnWords, wordIndex, speakWord }) => {
     
+    useEffect(() => {
+        speakWord(learnWords[wordIndex].translate);
+    }, [wordIndex]);
 
-    useEffect(()=> {speakWord(learnWords[wordIndex].translate)}, [wordIndex])
-    
     return (
-        <section >
+        <section>
             <span>{learnWords[wordIndex].word}</span>
             <h3>{learnWords[wordIndex].translate}</h3>
         </section>

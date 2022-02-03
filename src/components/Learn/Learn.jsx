@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import s from './Learn.module.css';
 import ProgressBar from './../UI/ProgressBar/ProgressBar';
 import LearnItem from './LearnItem/LearnItem';
+
 const Learn = (props) => {
     let itemsCount = props.lernWords.length;
 
@@ -15,7 +16,9 @@ const Learn = (props) => {
         wordIndex === itemsCount - 1
             ? setwordIndex(0)
             : setwordIndex(wordIndex + 1);
+            
     if (!props.lernWords || props.lernWords < 1) return <span className={s.noWords}>No words</span>;
+
     return (
         <div className={s.learn}>
             <ProgressBar width={width} />

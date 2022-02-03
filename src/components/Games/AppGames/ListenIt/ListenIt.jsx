@@ -1,21 +1,38 @@
-import React, { useState,useEffect } from 'react';
+import React from 'react';
 import s from '../AppGames.module.css';
 const ListenIt = (props) => {
-    
-    const onCheckWord = (word) => {
-        props.changeWordIndex();
-        props.addWordCheck(word.toLowerCase())
+    const onRightWord = () => {
+        props.checkWord(true);
     };
-   
-    return ( 
-            <section className={s.gameContainer}>
-                <span>Write a translation for this word</span>
-                <h3>{props.playWord}</h3>
+
+    const onWrongtWord = () => {
+        props.checkWord(false);
+    };
+
+    const onRepeat = () => {
+        props.repeatWord();
+    };
+
+    return (
+        <section className={s.gameContainer}>
+            <div className={s.contentBlock}>
+                <span className={s.timer}> {props.counter}</span>
+            
+                <span>It translation is</span>
                 <h3>{props.currentWord}</h3>
-                {/* <ul className={s.btnContainer}>
-                {props.currentWords.map((word,index) => (<li key={index} className={s.btnCheck} onClick={()=>onCheckWord(word)}>{word}</li>))}
-                </ul> */}
-            </section>
+                <span className={s.listen} onClick={onRepeat}></span>
+                <span  style={{color:'#979696'}}>click to listen</span>
+            </div>
+            
+            <ul className={s.letterContainer}>
+                <li className={s.btnYes} onClick={onRightWord}>
+                    yes
+                </li>
+                <li className={s.btnNo} onClick={onWrongtWord}>
+                    no
+                </li>
+            </ul>
+        </section>
     );
 };
 

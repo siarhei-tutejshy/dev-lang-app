@@ -1,16 +1,20 @@
-import s from './GameBlock.module.css';
 import React from 'react';
+import s from './GameBlock.module.css';
 import PlayButton from '../../../assets/img/play.svg';
+import { NavLink } from 'react-router-dom';
 
-const GameBlock = () => {
+const GameBlock = (props) => {
     return (
         <div className={s.gameBlock}>
             <p>
-                asdasdadadsasd <br /> <b>See it</b>
+                The most popular game <br /> <b>Put the translation</b>
             </p>
-
-            <img className={s.btnPlay} src={PlayButton} alt="#" />
-            <button className={s.btnRandom}>Play Randon Game</button>
+            <NavLink to="/game/put-it">
+                <img className={s.btnPlay} src={PlayButton} alt="#" />
+            </NavLink>
+            <NavLink className={s.btnRandom} to={`/game/${props.getRandomGame}`} >
+                Play Randon Game
+            </NavLink>
         </div>
     );
 };
